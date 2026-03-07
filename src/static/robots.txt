@@ -1,0 +1,5 @@
+# For information about the properties used below, see the robotstxt documentation:
+# https://www.robotstxt.org/
+
+User-agent: *
+Disallow:

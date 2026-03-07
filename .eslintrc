@@ -1,0 +1,33 @@
+// For information about the properties used below, see the eslint documentation:
+// https://eslint.org/docs/user-guide/configuring
+{
+  "env": {
+    "browser": true,
+    "es6": true,
+    "node": true
+  },
+  "plugins": [],
+  "extends": [
+    "eslint:recommended"
+  ],
+  "parserOptions": {
+    "sourceType": "module"
+  },
+  "rules": {
+    "indent": [
+      "error",
+      2
+    ],
+    "quotes": [
+      "error",
+      "double"
+    ],
+    "semi": [
+      "error",
+      "always"
+    ]
+  },
+  "ignorePatterns": [
+    "dist"
+  ]
+}

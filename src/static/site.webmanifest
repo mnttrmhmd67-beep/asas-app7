@@ -1,0 +1,25 @@
+{
+  "name": "",
+  "short_name": "",
+  "lang": "en",
+  "start_url": "/?utm_source=homescreen",
+  "display": "browser",
+  "theme_color": "",
+  "background_color": "",
+  "description": "",
+  "categories": [],
+  "icons": [
+    {
+      "src": "/icon.svg",
+      "sizes": "any"
+    }
+  ],
+  "related_applications": [
+    {
+      "platform": "",
+      "url": "",
+      "id": ""
+    }
+  ],
+  "prefer_related_applications": false
+}

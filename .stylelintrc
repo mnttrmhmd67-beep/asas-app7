@@ -1,0 +1,9 @@
+// For information about the properties used below, see the stylelint documentation:
+// https://stylelint.io/user-guide/configure
+{
+  "extends": "stylelint-config-standard",
+  "plugins": [
+    "stylelint-order"
+  ],
+  "rules": {}
+}

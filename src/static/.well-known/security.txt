@@ -1,0 +1,7 @@
+Canonical: https://example.com/.well-known/security.txt
+Preferred-Languages: en
+Policy: https://example.com/security/info
+Contact: https://example.com/security/report
+Encryption: https://example.com/security/pgp-key
+Acknowledgments: https://example.com/security/thanks
+Hiring: https://example.com/jobs

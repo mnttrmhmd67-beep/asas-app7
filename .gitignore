@@ -1,0 +1,11 @@
+# system generated files
+.DS_Store
+
+# dist files
+dist
+
+# NPM dependencies
+node_modules
+
+# NPM crash log
+npm-debug.log

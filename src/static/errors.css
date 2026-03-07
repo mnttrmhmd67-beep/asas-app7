@@ -1,0 +1,65 @@
+/*
+==========================================================================================
+  HTML Error Codes
+==========================================================================================
+*/
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  border: none;
+  font: inherit;
+  font-size: 100%;
+  vertical-align: baseline;
+}
+
+html,
+body {
+  min-height: 100vh;
+}
+
+html {
+  background: #fff;
+  font-size: 10px;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: ui-sans-serif, system-ui, -apple-system, sans-serif;
+  font-size: 1.6rem;
+  color: #808080;
+  line-height: 1.5;
+  text-align: center;
+  min-width: 3.6rem;
+}
+
+main {
+  margin: 1em 1em 3em;
+}
+
+h1 {
+  font-size: 2em;
+  font-weight: 700;
+  color: #404040;
+}
+
+p {
+  max-width: 30em;
+}
+
+@media (min-width: 360px) {
+  body {
+    font-size: calc(1.6rem + (30 - 16) * ((100vw - 36rem) / (1920 - 360)));
+  }
+}
+
+@media (min-width: 1920px) {
+  body {
+    font-size: 3.0rem;
+  }
+}

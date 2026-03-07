@@ -1,0 +1,7 @@
+// For information about the properties used below, see the babel documentation:
+// https://stylelint.io/user-guide/configure
+{
+  "presets": [
+    "@babel/preset-env"
+  ]
+}

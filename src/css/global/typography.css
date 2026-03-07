@@ -1,0 +1,59 @@
+/*
+==========================================================================================
+  Typography
+==========================================================================================
+*/
+
+.heading {
+  font-weight: var(--font-weight-heading);
+  color: var(--color-heading);
+  letter-spacing: var(--letter-spacing-heading);
+
+  &:not(:last-child) { margin-bottom: 0.5em; }
+}
+
+a {
+  color: var(--color-link);
+  text-decoration: underline;
+
+  &:hover { text-decoration: none; }
+}
+
+strong, b { font-weight: var(--font-weight-bold); }
+
+em, i { font-style: italic; }
+
+small {
+  font-size: var(--font-size-small);
+  line-height: var(--line-height-small);
+}
+
+sub,
+sup {
+  vertical-align: initial;
+  font-size: initial;
+}
+
+@supports (font-variant-position: sub) {
+  sub,
+  sup {
+    vertical-align: baseline;
+    font-size: inherit;
+  }
+
+  sub { font-variant-position: sub; }
+
+  sup { font-variant-position: super; }
+}
+
+pre,
+code,
+kbd,
+samp {
+  font-family: var(--font-family-monospace);
+  word-wrap: break-word;
+}
+
+pre { white-space: pre-wrap; }
+
+p { margin-bottom: 1em; }

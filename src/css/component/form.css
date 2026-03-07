@@ -1,0 +1,100 @@
+/*
+==========================================================================================
+  Forms
+==========================================================================================
+*/
+
+.form {
+  display: grid;
+  grid-gap: 0.0rem;
+  align-content: start;
+  width: 100%;
+
+  .fieldset {}
+
+  .legend {}
+
+  .field {
+    display: grid;
+    grid-template-areas:
+      "label"
+      "input";
+    grid-gap: 0.0rem;
+
+    &:not(:last-child) { margin-bottom: 0.0rem; }
+
+    &.field--checkbox,
+    &.field--radio {
+      grid-template-areas:
+        "input label";
+      grid-template-columns: auto 1fr;
+      grid-gap: 0.0rem;
+    }
+  }
+}
+
+.label {
+  display: block;
+  grid-area: label;
+  user-select: none;
+
+  &[for] { cursor: pointer; }
+}
+
+.input {
+  appearance: none;
+  grid-area: input;
+  background-color: var(--color-white);
+  border: var(--border-base);
+  border-radius: var(--border-radius-relative);
+  font-size: var(--font-size-base);
+  color: var(--color-base);
+  line-height: var(--line-height-base);
+  letter-spacing: var(--letter-spacing-base);
+
+  &:focus {}
+
+  &:required {}
+
+  &:disabled { color: var(--color-placeholder); }
+
+  &.input-text,
+  &.input-textarea,
+  &.input-select {
+    display: block;
+    padding: 0.5em 0.75em;
+    width: 100%;
+  }
+
+  &.input-select,
+  &.input-checkbox,
+  &.input-radio {
+    cursor: pointer;
+  }
+
+  &.input-checkbox,
+  &.input-radio {
+    width: 1em;
+    height: 1em;
+
+    &:checked {}
+
+    &:indeterminate {}
+  }
+
+  &.input-text {}
+
+  &.input-textarea { resize: vertical; }
+
+  &.input-select {}
+
+  &.input-checkbox {}
+
+  &.input-radio {}
+
+  &.input-range {
+    &:in-range {}
+
+    &:out-of-range {}
+  }
+}

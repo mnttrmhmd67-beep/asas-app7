@@ -1,0 +1,60 @@
+/*
+==========================================================================================
+  Buttons
+==========================================================================================
+*/
+
+.button {
+  color: var(--color-link);
+  line-height: inherit;
+  letter-spacing: inherit;
+  text-decoration: inherit;
+  white-space: nowrap;
+  user-select: none;
+  cursor: pointer;
+
+  &:disabled {
+    background-color: var(--color-gray-1);
+    text-decoration: none;
+    cursor: default;
+  }
+
+  &:not(:disabled) {
+    &:hover {}
+
+    &:active {}
+  }
+
+  &.button-base {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0.5em 1em;
+    background-color: var(--color-gray-4);
+    border-radius: var(--border-radius-base);
+    font-size: var(--font-size-base);
+    font-weight: var(--font-weight-base);
+    color: var(--color-gray-0);
+    line-height: 1;
+    text-decoration: none;
+
+    &:disabled {
+      background-color: var(--color-gray-1);
+      color: var(--color-gray-2);
+    }
+
+    &:not(:disabled) {
+      &:hover {}
+
+      &:active {}
+    }
+  }
+
+  &.button-wide { display: flex; }
+}
+
+button {
+  appearance: none;
+  background-color: transparent;
+  border: none;
+}
