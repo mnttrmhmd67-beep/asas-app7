@@ -3,75 +3,26 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>العملاء - منصة أساس</title>
-  <link rel="stylesheet" href="../css/main.css">
+  <title>منصة أساس - العملاء</title>
+  <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-  <header>
-    <nav class="navbar">
-      <a href="index.html" class="logo">منصة أساس</a>
-      <ul class="nav-links">
-        <li><a href="index.html">الرئيسية</a></li>
-        <li><a href="customers.html" class="active">العملاء</a></li>
-        <li><a href="suppliers.html">الموردين</a></li>
-        <li><a href="dashboard.html">لوحة التحكم</a></li>
-      </ul>
-    </nav>
-  </header>
 
-  <main>
-    <section class="customers-section">
-      <h1>قائمة العملاء</h1>
-      <table class="customers-table">
-        <thead>
-          <tr>
-            <th>الرقم</th>
-            <th>اسم العميل</th>
-            <th>البريد الإلكتروني</th>
-            <th>الهاتف</th>
-            <th>الإجراءات</th>
-          </tr>
-        </thead>
-        <tbody id="customers-table-body">
-          <!-- سيتم ملء البيانات بواسطة JS -->
-        </tbody>
-      </table>
-      <button id="add-customer-btn">إضافة عميل جديد</button>
-    </section>
-  </main>
+  <!-- شريط التنقل -->
+  <nav class="navbar">
+    <a href="index.html" class="logo">منصة أساس</a>
+    <ul class="nav-links">
+      <li><a href="index.html">الرئيسية</a></li>
+      <li><a href="customers.html">العملاء</a></li>
+      <li><a href="suppliers.html">الموردين</a></li>
+      <li><a href="dashboard.html">لوحة التحكم</a></li>
+    </ul>
+  </nav>
 
-  <footer>
-    <p>© 2026 منصة أساس</p>
-  </footer>
+  <!-- محتوى الصفحة -->
+  <h1>صفحة العملاء</h1>
+  <p>قائمة جميع العملاء هنا.</p>
 
-  <script src="../js/main.js"></script>
-  <script>
-    // مثال بيانات العملاء (يمكن استبدالها بالاستدعاء من قاعدة البيانات لاحقًا)
-    const customers = [
-      { id: 1, name: "منتظر محمد", email: "mnttrmhmd67@gmail.com", phone: "07732670436" },
-      { id: 2, name: "عميل تجريبي", email: "test@example.com", phone: "07700000000" }
-    ];
-
-    const tableBody = document.getElementById("customers-table-body");
-    customers.forEach(customer => {
-      const row = document.createElement("tr");
-      row.innerHTML = `
-        <td>${customer.id}</td>
-        <td>${customer.name}</td>
-        <td>${customer.email}</td>
-        <td>${customer.phone}</td>
-        <td>
-          <button class="edit-btn">تعديل</button>
-          <button class="delete-btn">حذف</button>
-        </td>
-      `;
-      tableBody.appendChild(row);
-    });
-
-    // زر إضافة عميل (يمكن ربطه لاحقًا بنموذج أو نافذة منبثقة)
-    document.getElementById("add-customer-btn").addEventListener("click", () => {
-      alert("سيتم إضافة عميل جديد هنا.");
-    });
-  </script>
+  <script src="main.js"></script>
 </body>
 </html>
