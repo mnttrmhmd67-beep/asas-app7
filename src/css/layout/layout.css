@@ -1,16 +1,56 @@
-/* تنسيق عام للصفحات */
+/* الصفحة بالكامل */
 body {
+  font-family: 'Arial', sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #f0f4f8;
   margin: 0;
-  font-family: Arial, sans-serif;
-  background-color: #f8f9fa;
+  direction: rtl;
 }
 
-.container {
-  max-width: 1200px;
-  margin: auto;
-  padding: 20px;
+/* حاوية الدخول */
+.login-container {
+  text-align: center;
 }
 
-h1, h2, h3 {
-  color: #333;
+/* شعار المنصة */
+.logo img {
+  width: 200px;
+  margin-bottom: 50px;
+}
+
+/* أزرار الدخول */
+.login-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 50px;
+}
+
+.btn {
+  padding: 15px 40px;
+  text-decoration: none;
+  color: white;
+  font-size: 18px;
+  border-radius: 8px;
+  transition: 0.3s;
+}
+
+/* الزر الأيمن (العملاء) */
+.btn-right {
+  background-color: #0077cc;
+}
+
+.btn-right:hover {
+  background-color: #005fa3;
+}
+
+/* الزر الأيسر (الموردين) */
+.btn-left {
+  background-color: #0077cc;
+}
+
+.btn-left:hover {
+  background-color: #005fa3;
 }
