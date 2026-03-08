@@ -1,30 +1,30 @@
-<!DOCTYPE html>
-<html lang="ar">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>الموردين - منصة أساس</title>
-  <link rel="stylesheet" href="css/layout/header.css">
-  <link rel="stylesheet" href="css/layout/layout.css">
-</head>
-<body>
-  <nav class="navbar">
-    <a href="index.html" class="logo">منصة أساس</a>
-    <ul class="nav-links">
-      <li><a href="index.html">الرئيسية</a></li>
-      <li><a href="customers.html">العملاء</a></li>
-      <li><a href="suppliers.html">الموردين</a></li>
-      <li><a href="dashboard.html">لوحة التحكم</a></li>
-    </ul>
-  </nav>
+<h1>طلبات التوريد</h1>
 
-  <div class="container">
-    <h1>قائمة الموردين</h1>
-    <p>هنا يمكنك عرض جميع الموردين المسجلين.</p>
-  </div>
+<div id="orders"></div>
 
-  <footer>
-    © 2026 منصة أساس
-  </footer>
-</body>
-</html>
+<script>
+
+let orders = JSON.parse(localStorage.getItem("orders")) || [];
+
+let container = document.getElementById("orders");
+
+orders.forEach(o=>{
+
+if(o.status=="approved"){
+
+container.innerHTML += `
+<div>
+
+قطر: ${o.size}  
+كمية: ${o.qty} طن
+
+<button>قبول التوريد</button>
+
+</div>
+`;
+
+}
+
+});
+
+</script>
