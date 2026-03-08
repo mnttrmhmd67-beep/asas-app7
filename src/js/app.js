@@ -1,22 +1,16 @@
-let orders = JSON.parse(localStorage.getItem("orders")) || [];
+function order(size){
 
-function order(size,price){
+let name = prompt("ادخل اسمك");
+let qty = prompt("ادخل الكمية بالطن");
 
-let name = prompt("اسمك");
-let qty = prompt("الكمية بالطن");
+let message =
+"طلب حديد من منصة أساس" +
+"%0Aالاسم: " + name +
+"%0Aالقطر: " + size +
+"%0Aالكمية: " + qty + " طن";
 
-let newOrder = {
-name:name,
-size:size,
-qty:qty,
-price:price,
-status:"pending"
-};
-
-orders.push(newOrder);
-
-localStorage.setItem("orders",JSON.stringify(orders));
-
-alert("تم إرسال الطلب");
+window.open(
+"https://wa.me/9647732670436?text="+message
+);
 
 }
