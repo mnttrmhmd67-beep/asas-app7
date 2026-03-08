@@ -1,90 +1,32 @@
 <!DOCTYPE html>
 <html lang="ar">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>منصة أساس - العميل</title>
-  <link rel="stylesheet" href="../style.css">
+
+<meta charset="UTF-8">
+
+<title>طلب جديد</title>
+
+<link rel="stylesheet" href="css/style.css">
+
 </head>
+
 <body>
-  <header>
-    <h1>منصة أساس - العميل</h1>
-    <p>اختر المنتجات واضغط على "إرسال الطلب"</p>
-  </header>
 
-  <div class="products">
-    <div class="product-card" data-name="حديد 12 مم" data-price="1000000">
-      <h2>حديد 12 مم</h2>
-      <p>طول 6 متر - جودة عالية</p>
-      <p class="price">السعر: 1,000,000 دينار/طن</p>
-      <input type="number" min="1" value="1">
-      <br>
-      <a href="#" class="btn-whatsapp" onclick="submitOrder(event)">إرسال الطلب</a>
-    </div>
+<h1>إرسال طلب</h1>
 
-    <div class="product-card" data-name="حديد 16 مم" data-price="1300000">
-      <h2>حديد 16 مم</h2>
-      <p>مناسب للمشاريع الكبيرة</p>
-      <p class="price">السعر: 1,300,000 دينار/طن</p>
-      <input type="number" min="1" value="1">
-      <br>
-      <a href="#" class="btn-whatsapp" onclick="submitOrder(event)">إرسال الطلب</a>
-    </div>
+<input id="name" placeholder="اسم العميل">
 
-    <div class="product-card" data-name="حديد 20 مم" data-price="1500000">
-      <h2>حديد 20 مم</h2>
-      <p>مناسب للمباني والمتوسط المشاريع</p>
-      <p class="price">السعر: 1,500,000 دينار/طن</p>
-      <input type="number" min="1" value="1">
-      <br>
-      <a href="#" class="btn-whatsapp" onclick="submitOrder(event)">إرسال الطلب</a>
-    </div>
+<input id="phone" placeholder="رقم الهاتف">
 
-    <div class="product-card" data-name="حديد 25 مم" data-price="1700000">
-      <h2>حديد 25 مم</h2>
-      <p>مناسب للمشاريع الكبيرة جدًا</p>
-      <p class="price">1,700,000 دينار/طن</p>
-      <input type="number" min="1" value="1">
-      <br>
-      <a href="#" class="btn-whatsapp" onclick="submitOrder(event)">إرسال الطلب</a>
-    </div>
+<input id="city" placeholder="المدينة">
 
-    <div class="product-card" data-name="حديد 32 مم" data-price="2000000">
-      <h2>حديد 32 مم</h2>
-      <p>أفضل للمشاريع العملاقة</p>
-      <p class="price">2,000,000 دينار/طن</p>
-      <input type="number" min="1" value="1">
-      <br>
-      <a href="#" class="btn-whatsapp" onclick="submitOrder(event)">إرسال الطلب</a>
-    </div>
-  </div>
+<input id="product" placeholder="المنتج">
 
-  <script>
-    function submitOrder(e){
-      e.preventDefault();
-      const card = e.target.closest('.product-card');
-      const qty = card.querySelector('input').value || 1;
-      const name = card.dataset.name;
-      const price = card.dataset.price;
-      const total = qty * price;
+<input id="qty" placeholder="الكمية طن">
 
-      // قراءة الطلبات الحالية من localStorage
-      let orders = JSON.parse(localStorage.getItem('orders') || '[]');
+<button onclick="sendOrder()">إرسال الطلب</button>
 
-      // إضافة الطلب الجديد
-      orders.push({
-        clientName: prompt("الاسم الكامل:"),
-        phone: prompt("رقم الهاتف:"),
-        city: prompt("المحافظة/المدينة:"),
-        product: name,
-        qty: qty,
-        total: total,
-        status: "جديد"
-      });
+<script src="js/main.js"></script>
 
-      localStorage.setItem('orders', JSON.stringify(orders));
-      alert("تم إرسال الطلب، في انتظار الموافقة من المسؤول.");
-    }
-  </script>
 </body>
 </html>
