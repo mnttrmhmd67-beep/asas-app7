@@ -1,21 +1,53 @@
 <!DOCTYPE html>
 <html lang="ar">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>منصة أساس - تسجيل الدخول</title>
-  <link rel="stylesheet" href="style.css">
-</head>
-<body>
-  <header>
-    <h1>منصة أساس</h1>
-    <p>اختر نوع الحساب للدخول</p>
-  </header>
 
-  <div class="account-choice">
-    <a href="client/customers.html" class="btn-choice">عميل</a>
-    <a href="admin/admin.html" class="btn-choice">مسؤول</a>
-    <a href="supplier/supplier.html" class="btn-choice">مورد</a>
-  </div>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>منصة أساس</title>
+
+<link rel="stylesheet" href="css/style.css">
+
+</head>
+
+<body>
+
+<div class="login-box">
+
+<h1>منصة أساس</h1>
+
+<select id="role">
+<option value="customer">عميل</option>
+<option value="admin">مسؤول</option>
+<option value="supplier">مورد</option>
+</select>
+
+<button onclick="login()">دخول</button>
+
+</div>
+
+<script>
+
+function login(){
+
+const role = document.getElementById("role").value;
+
+if(role === "customer"){
+window.location="customers.html";
+}
+
+if(role === "admin"){
+window.location="admin.html";
+}
+
+if(role === "supplier"){
+window.location="suppliers.html";
+}
+
+}
+
+</script>
+
 </body>
 </html>
