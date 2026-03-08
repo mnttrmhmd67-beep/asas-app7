@@ -1,61 +1,22 @@
 <!DOCTYPE html>
 <html lang="ar">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>منصة أساس - المسؤول</title>
-  <link rel="stylesheet" href="../style.css">
+
+<meta charset="UTF-8">
+
+<title>لوحة المسؤول</title>
+
+<link rel="stylesheet" href="css/style.css">
+
 </head>
+
 <body>
-  <header>
-    <h1>منصة أساس - لوحة المسؤول</h1>
-    <p>يمكنك الموافقة أو رفض الطلبات</p>
-  </header>
 
-  <div class="orders" id="orders"></div>
+<h1>لوحة تحكم الطلبات</h1>
 
-  <script>
-    function renderOrders(){
-      const ordersDiv = document.getElementById('orders');
-      ordersDiv.innerHTML = '';
-      const orders = JSON.parse(localStorage.getItem('orders') || '[]');
+<div id="orders"></div>
 
-      orders.forEach((o, index)=>{
-        const card = document.createElement('div');
-        card.className = 'order-card';
-        card.innerHTML = `
-          <h2>${o.product}</h2>
-          <p>العميل: ${o.clientName}</p>
-          <p>رقم الهاتف: ${o.phone}</p>
-          <p>المدينة: ${o.city}</p>
-          <p>الكمية: ${o.qty} طن</p>
-          <p>المجموع: ${o.total.toLocaleString()} دينار</p>
-          <p>الحالة: ${o.status}</p>
-          <button class="btn-action" onclick="approve(${index})">موافقة</button>
-          <button class="btn-action" onclick="reject(${index})">رفض</button>
-        `;
-        ordersDiv.appendChild(card);
-      });
-    }
+<script src="js/main.js"></script>
 
-    function approve(i){
-      let orders = JSON.parse(localStorage.getItem('orders'));
-      orders[i].status = "مقبول";
-      localStorage.setItem('orders', JSON.stringify(orders));
-      renderOrders();
-      alert("تم إرسال الطلب للمورد.");
-    }
-
-    function reject(i){
-      let reason = prompt("سبب الرفض:");
-      let orders = JSON.parse(localStorage.getItem('orders'));
-      orders[i].status = "مرفوض: " + reason;
-      localStorage.setItem('orders', JSON.stringify(orders));
-      renderOrders();
-      alert("تم رفض الطلب.");
-    }
-
-    renderOrders();
-  </script>
 </body>
 </html>
