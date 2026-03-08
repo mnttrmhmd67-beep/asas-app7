@@ -1,4 +1,3 @@
-// رقمك على واتساب
 const whatsappNumber = "07732670436";
 
 document.querySelectorAll(".product-card").forEach(card => {
@@ -15,5 +14,5 @@ document.querySelectorAll(".product-card").forEach(card => {
   }
 
   input.addEventListener("input", updateLink);
-  updateLink(); // تحديث الرابط عند التحميل
+  updateLink();
 });
