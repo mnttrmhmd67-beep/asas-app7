@@ -1,0 +1,40 @@
+<h1>لوحة الإدارة</h1>
+
+<div id="orders"></div>
+
+<script src="js/app.js"></script>
+<script>
+
+let orders = JSON.parse(localStorage.getItem("orders")) || [];
+
+let container = document.getElementById("orders");
+
+orders.forEach((o,i)=>{
+
+if(o.status=="pending"){
+
+container.innerHTML += `
+<div>
+${o.name} - ${o.size} - ${o.qty} طن
+
+<button onclick="approve(${i})">
+موافقة
+</button>
+</div>
+`;
+
+}
+
+});
+
+function approve(i){
+
+orders[i].status="approved";
+
+localStorage.setItem("orders",JSON.stringify(orders));
+
+location.reload();
+
+}
+
+</script>
