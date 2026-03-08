@@ -1,2 +1,4 @@
-import "./css/app.css";
-import "./js/app.js";
+document.addEventListener("DOMContentLoaded", function () {
+  loadAdmin();
+  loadSupplier();
+});
