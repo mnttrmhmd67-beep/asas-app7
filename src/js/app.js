@@ -1,48 +1,22 @@
-/*
-==========================================================================================
-  Dependencies
-==========================================================================================
-*/
+let orders = JSON.parse(localStorage.getItem("orders")) || [];
 
-// global objects
-import Browser from "./global/browser.js";
-import Constants from "./global/constants.js";
-import Endpoints from "./global/endpoints.js";
-import Models from "./global/models.js";
-import Selectors from "./global/selectors.js";
+function order(size,price){
 
-// global modules
-import Helpers from "./module/helpers.js";
-import Utilities from "./module/utilities.js";
+let name = prompt("اسمك");
+let qty = prompt("الكمية بالطن");
 
-/*
-==========================================================================================
-  Public
-==========================================================================================
-*/
-
-const App = {
-
-  initialize() {
-
-    Selectors.global.html.classList.remove("no-js");
-
-  }
-
+let newOrder = {
+name:name,
+size:size,
+qty:qty,
+price:price,
+status:"pending"
 };
 
-/*
-==========================================================================================
-  Private
-==========================================================================================
-*/
+orders.push(newOrder);
 
+localStorage.setItem("orders",JSON.stringify(orders));
 
+alert("تم إرسال الطلب");
 
-/*
-==========================================================================================
-  Exports
-==========================================================================================
-*/
-
-export default App;
+}
