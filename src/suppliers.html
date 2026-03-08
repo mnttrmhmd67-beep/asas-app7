@@ -1,42 +1,22 @@
 <!DOCTYPE html>
 <html lang="ar">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>منصة أساس - المورد</title>
-  <link rel="stylesheet" href="../style.css">
+
+<meta charset="UTF-8">
+
+<title>المورد</title>
+
+<link rel="stylesheet" href="css/style.css">
+
 </head>
+
 <body>
-  <header>
-    <h1>منصة أساس - المورد</h1>
-    <p>عرض الطلبات المقبولة فقط</p>
-  </header>
 
-  <div class="orders" id="orders"></div>
+<h1>طلبات التجهيز</h1>
 
-  <script>
-    function renderOrders(){
-      const ordersDiv = document.getElementById('orders');
-      ordersDiv.innerHTML = '';
-      const orders = JSON.parse(localStorage.getItem('orders') || '[]')
-                      .filter(o=>o.status==="مقبول");
+<div id="orders"></div>
 
-      orders.forEach((o)=>{
-        const card = document.createElement('div');
-        card.className = 'order-card';
-        card.innerHTML = `
-          <h2>${o.product}</h2>
-          <p>العميل: ${o.clientName}</p>
-          <p>رقم الهاتف: ${o.phone}</p>
-          <p>المدينة: ${o.city}</p>
-          <p>الكمية: ${o.qty} طن</p>
-          <p>المجموع: ${o.total.toLocaleString()} دينار</p>
-        `;
-        ordersDiv.appendChild(card);
-      });
-    }
+<script src="js/main.js"></script>
 
-    renderOrders();
-  </script>
 </body>
 </html>
