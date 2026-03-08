@@ -1,30 +1,98 @@
 <!DOCTYPE html>
 <html lang="ar">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>العملاء - منصة أساس</title>
-  <link rel="stylesheet" href="css/layout/header.css">
-  <link rel="stylesheet" href="css/layout/layout.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>طلب الحديد - منصة أساس</title>
+
+<style>
+
+body{
+font-family:Tahoma;
+background:#f5f7fb;
+text-align:center;
+}
+
+h1{
+color:#1e40af;
+}
+
+.container{
+display:flex;
+justify-content:center;
+gap:30px;
+flex-wrap:wrap;
+margin-top:40px;
+}
+
+.card{
+background:white;
+padding:20px;
+width:220px;
+border-radius:10px;
+box-shadow:0 0 10px rgba(0,0,0,0.1);
+}
+
+button{
+background:#2563eb;
+color:white;
+border:none;
+padding:10px 20px;
+border-radius:6px;
+cursor:pointer;
+}
+
+</style>
+
 </head>
+
 <body>
-  <nav class="navbar">
-    <a href="index.html" class="logo">منصة أساس</a>
-    <ul class="nav-links">
-      <li><a href="index.html">الرئيسية</a></li>
-      <li><a href="customers.html">العملاء</a></li>
-      <li><a href="suppliers.html">الموردين</a></li>
-      <li><a href="dashboard.html">لوحة التحكم</a></li>
-    </ul>
-  </nav>
 
-  <div class="container">
-    <h1>قائمة العملاء</h1>
-    <p>هنا يمكنك عرض جميع العملاء المسجلين.</p>
-  </div>
+<h1>طلب حديد التسليح</h1>
 
-  <footer>
-    © 2026 منصة أساس
-  </footer>
+<div class="container">
+
+<div class="card">
+<h3>حديد قطر 8 ملم</h3>
+<p>السعر: 750 دولار / طن</p>
+<button onclick="order('8 ملم',750)">طلب</button>
+</div>
+
+<div class="card">
+<h3>حديد قطر 12 ملم</h3>
+<p>السعر: 730 دولار / طن</p>
+<button onclick="order('12 ملم',730)">طلب</button>
+</div>
+
+<div class="card">
+<h3>حديد قطر 16 ملم</h3>
+<p>السعر: 720 دولار / طن</p>
+<button onclick="order('16 ملم',720)">طلب</button>
+</div>
+
+</div>
+
+<script>
+
+function order(size,price){
+
+let name = prompt("اسمك");
+let qty = prompt("الكمية بالطن");
+
+let message =
+"طلب جديد من منصة أساس" +
+"%0Aالاسم: " + name +
+"%0Aالقطر: " + size +
+"%0Aالكمية: " + qty +
+"%0Aالسعر: " + price;
+
+window.open(
+"https://wa.me/9647732670436?text="+message
+);
+
+}
+
+</script>
+
 </body>
 </html>
