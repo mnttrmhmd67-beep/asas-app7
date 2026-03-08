@@ -1,40 +1,26 @@
-<h1>لوحة الإدارة</h1>
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+<meta charset="UTF-8">
+<title>لوحة الإدارة</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
 
-<div id="orders"></div>
+<body>
 
-<script src="js/app.js"></script>
-<script>
+<header>
+<h1>لوحة إدارة منصة أساس</h1>
+</header>
 
-let orders = JSON.parse(localStorage.getItem("orders")) || [];
+<div class="container">
 
-let container = document.getElementById("orders");
-
-orders.forEach((o,i)=>{
-
-if(o.status=="pending"){
-
-container.innerHTML += `
-<div>
-${o.name} - ${o.size} - ${o.qty} طن
-
-<button onclick="approve(${i})">
-موافقة
-</button>
+<div class="card">
+<h3>إدارة الطلبات</h3>
+<p>الطلبات تصل عبر واتساب</p>
+<p>بعد الموافقة يتم إرسالها للموردين</p>
 </div>
-`;
 
-}
+</div>
 
-});
-
-function approve(i){
-
-orders[i].status="approved";
-
-localStorage.setItem("orders",JSON.stringify(orders));
-
-location.reload();
-
-}
-
-</script>
+</body>
+</html>
