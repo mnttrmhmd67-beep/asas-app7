@@ -1,14 +1,13 @@
 <h2 class="title">طلبات العملاء</h2>
 
-<div id="supplierOrders"></div>
+<div id="orders"></div>
 
 <script>
 
 let orders = JSON.parse(localStorage.getItem("orders")) || []
+let container = document.getElementById("orders")
 
-let container = document.getElementById("supplierOrders")
-
-orders.forEach((order)=>{
+orders.forEach((order,index)=>{
 
 if(order.status === "approved"){
 
@@ -18,6 +17,13 @@ div.innerHTML = `
 <p>قطر الحديد: ${order.diameter}</p>
 <p>الكمية: ${order.qty} طن</p>
 <p>الموقع: ${order.location}</p>
+
+<input type="number" placeholder="السعر للطن" id="price${index}">
+
+<button onclick="sendPrice(${index})">
+إرسال السعر
+</button>
+
 <hr>
 `
 
@@ -26,5 +32,19 @@ container.appendChild(div)
 }
 
 })
+
+function sendPrice(index){
+
+let orders = JSON.parse(localStorage.getItem("orders"))
+
+let price = document.getElementById("price"+index).value
+
+orders[index].prices.push(price)
+
+localStorage.setItem("orders", JSON.stringify(orders))
+
+alert("تم إرسال السعر")
+
+}
 
 </script>
