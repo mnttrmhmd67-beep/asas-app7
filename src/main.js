@@ -8,7 +8,8 @@ let order = {
 diameter: diameter,
 qty: qty,
 location: location,
-status: "pending"
+status: "pending",
+prices: []
 }
 
 let orders = JSON.parse(localStorage.getItem("orders")) || []
