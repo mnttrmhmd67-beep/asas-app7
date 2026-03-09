@@ -1,37 +1,49 @@
-<h2 class="title">الأسعار المقدمة</h2>
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>الأسعار المقدمة</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
 
-<div id="orders"></div>
+<body>
+
+<h2 class="title">الطلبات والأسعار المقدمة</h2>
+
+<div id="ordersContainer"></div>
 
 <script>
 
 let orders = JSON.parse(localStorage.getItem("orders")) || []
-let container = document.getElementById("orders")
+let container = document.getElementById("ordersContainer")
 
-orders.forEach((order)=>{
+orders.forEach((order,index)=>{
 
-if(order.prices.length > 0){
+    // فقط الطلبات التي تم الموافقة عليها ولها أسعار
+    if(order.status === "approved" && order.prices.length > 0){
 
-let div = document.createElement("div")
+        let div = document.createElement("div")
 
-let pricesHTML = ""
+        let pricesHTML = ""
+        order.prices.forEach((price,i)=>{
+            pricesHTML += `<p>عرض المورد ${i+1}: ${price} دينار / طن</p>`
+        })
 
-order.prices.forEach(price=>{
-pricesHTML += `<p>السعر: ${price} دينار / طن</p>`
-})
+        div.innerHTML = `
+            <p>قطر الحديد: ${order.diameter}</p>
+            <p>الكمية: ${order.qty} طن</p>
+            <p>الموقع: ${order.location}</p>
+            ${pricesHTML}
+            <hr>
+        `
 
-div.innerHTML = `
-<p>قطر الحديد: ${order.diameter}</p>
-<p>الكمية: ${order.qty}</p>
-
-${pricesHTML}
-
-<hr>
-`
-
-container.appendChild(div)
-
-}
+        container.appendChild(div)
+    }
 
 })
 
 </script>
+
+</body>
+</html>
