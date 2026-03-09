@@ -1,31 +1,42 @@
-<!DOCTYPE html>
-<html lang="ar">
-<head>
+<h2 class="title">لوحة الإدارة</h2>
 
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<div id="orders"></div>
 
-<title>لوحة الإدارة</title>
+<script>
 
-<link rel="stylesheet" href="css/style.css">
+let orders = JSON.parse(localStorage.getItem("orders")) || []
 
-</head>
+let container = document.getElementById("orders")
 
-<body>
+orders.forEach((order,index)=>{
 
-<h2 class="title">لوحة إدارة منصة أساس</h2>
+let div = document.createElement("div")
 
-<div class="admin">
+div.innerHTML = `
+<p>قطر الحديد: ${order.diameter}</p>
+<p>الكمية: ${order.qty} طن</p>
+<p>الموقع: ${order.location}</p>
 
-<p>كل الطلبات تصل إلى واتسابك مباشرة</p>
+<button onclick="approveOrder(${index})">موافقة</button>
+<hr>
+`
 
-<a class="btn" href="https://wa.me/9647732670436" target="_blank">
+container.appendChild(div)
 
-فتح واتساب
+})
 
-</a>
+function approveOrder(index){
 
-</div>
+let orders = JSON.parse(localStorage.getItem("orders"))
 
-</body>
-</html>
+orders[index].status = "approved"
+
+localStorage.setItem("orders", JSON.stringify(orders))
+
+alert("تمت الموافقة")
+
+location.reload()
+
+}
+
+</script>
