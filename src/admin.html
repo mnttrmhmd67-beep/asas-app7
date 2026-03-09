@@ -5,10 +5,11 @@
 <script>
 
 let orders = JSON.parse(localStorage.getItem("orders")) || []
-
 let container = document.getElementById("orders")
 
 orders.forEach((order,index)=>{
+
+if(order.status === "pending"){
 
 let div = document.createElement("div")
 
@@ -17,15 +18,20 @@ div.innerHTML = `
 <p>الكمية: ${order.qty} طن</p>
 <p>الموقع: ${order.location}</p>
 
-<button onclick="approveOrder(${index})">موافقة</button>
+<button onclick="approve(${index})">
+موافقة
+</button>
+
 <hr>
 `
 
 container.appendChild(div)
 
+}
+
 })
 
-function approveOrder(index){
+function approve(index){
 
 let orders = JSON.parse(localStorage.getItem("orders"))
 
