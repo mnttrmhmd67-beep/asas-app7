@@ -1,23 +1,30 @@
-<!DOCTYPE html>
-<html lang="ar">
-<head>
+<h2 class="title">طلبات العملاء</h2>
 
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<div id="supplierOrders"></div>
 
-<title>الموردين</title>
+<script>
 
-<link rel="stylesheet" href="css/style.css">
+let orders = JSON.parse(localStorage.getItem("orders")) || []
 
-</head>
+let container = document.getElementById("supplierOrders")
 
-<body>
+orders.forEach((order)=>{
 
-<h2 class="title">صفحة الموردين</h2>
+if(order.status === "approved"){
 
-<p>سيتم عرض طلبات العملاء هنا لاحقاً.</p>
+let div = document.createElement("div")
 
-<a href="dashboard.html" class="btn">لوحة المورد</a>
+div.innerHTML = `
+<p>قطر الحديد: ${order.diameter}</p>
+<p>الكمية: ${order.qty} طن</p>
+<p>الموقع: ${order.location}</p>
+<hr>
+`
 
-</body>
-</html>
+container.appendChild(div)
+
+}
+
+})
+
+</script>
