@@ -1,102 +1,17 @@
-// ارسال الطلب من صفحة العميل
 function sendOrder(){
 
-const name = document.getElementById("name").value
-const phone = document.getElementById("phone").value
-const city = document.getElementById("city").value
-const product = document.getElementById("product").value
-const qty = document.getElementById("qty").value
+let diameter = document.getElementById("diameter").value
+let qty = document.getElementById("qty").value
+let location = document.getElementById("location").value
 
-let orders = JSON.parse(localStorage.getItem("orders") || "[]")
+let message =
+"طلب جديد من منصة أساس" +
+"%0Aقطر الحديد: " + diameter +
+"%0Aالكمية: " + qty + " طن" +
+"%0Aالموقع: " + location
 
-orders.push({
-clientName:name,
-phone:phone,
-city:city,
-product:product,
-qty:qty,
-total: qty * 800000,
-status:"جديد"
-})
+let phone = "9647732670436"
 
-localStorage.setItem("orders",JSON.stringify(orders))
-
-alert("تم إرسال الطلب")
+window.open("https://wa.me/" + phone + "?text=" + message)
 
 }
-
-
-// تحميل الطلبات في لوحة المسؤول
-function loadAdmin(){
-
-const div = document.getElementById("orders")
-
-if(!div) return
-
-const orders = JSON.parse(localStorage.getItem("orders") || "[]")
-
-div.innerHTML=""
-
-orders.forEach((o,i)=>{
-
-div.innerHTML += `
-<div class="card">
-
-<h3>${o.product}</h3>
-
-<p>العميل: ${o.clientName}</p>
-
-<p>الهاتف: ${o.phone}</p>
-
-<p>المدينة: ${o.city}</p>
-
-<p>الكمية: ${o.qty}</p>
-
-<p>الحالة: ${o.status}</p>
-
-<button onclick="approve(${i})">موافقة</button>
-
-<button onclick="reject(${i})">رفض</button>
-
-</div>
-`
-
-})
-
-}
-
-
-// الموافقة على الطلب
-function approve(i){
-
-let orders = JSON.parse(localStorage.getItem("orders"))
-
-orders[i].status = "مقبول"
-
-localStorage.setItem("orders",JSON.stringify(orders))
-
-loadAdmin()
-
-}
-
-
-// رفض الطلب
-function reject(i){
-
-let orders = JSON.parse(localStorage.getItem("orders"))
-
-orders[i].status = "مرفوض"
-
-localStorage.setItem("orders",JSON.stringify(orders))
-
-loadAdmin()
-
-}
-
-
-// تحميل الطلبات عند فتح الصفحة
-document.addEventListener("DOMContentLoaded", function(){
-
-loadAdmin()
-
-})
