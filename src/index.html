@@ -4,28 +4,43 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>منصة أساس</title>
+
 <link rel="stylesheet" href="css/style.css">
+
 </head>
+
 <body>
 
-<div class="login-box">
-  <h1>منصة أساس</h1>
-  <select id="role">
-    <option value="customer">عميل</option>
-    <option value="admin">مسؤول</option>
-    <option value="supplier">مورد</option>
-  </select>
-  <button onclick="login()">دخول</button>
+<header class="navbar">
+
+<h1 class="logo">منصة أساس</h1>
+
+<nav>
+
+<a href="index.html">الرئيسية</a>
+<a href="customers.html">العملاء</a>
+<a href="suppliers.html">الموردين</a>
+
+</nav>
+
+</header>
+
+
+<section class="hero">
+
+<h2>منصة تجارة حديد التسليح في العراق</h2>
+
+<p>اطلب الحديد مباشرة من الموردين</p>
+
+<div class="buttons">
+
+<a href="customers.html" class="btn">أنا عميل</a>
+
+<a href="suppliers.html" class="btn">أنا مورد</a>
+
 </div>
 
-<script>
-function login(){
-  const role = document.getElementById("role").value;
-  if(role === "customer") window.location = "customers.html";
-  if(role === "admin") window.location = "admin.html";
-  if(role === "supplier") window.location = "suppliers.html";
-}
-</script>
+</section>
 
 </body>
 </html>
