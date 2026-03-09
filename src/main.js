@@ -4,14 +4,19 @@ let diameter = document.getElementById("diameter").value
 let qty = document.getElementById("qty").value
 let location = document.getElementById("location").value
 
-let message =
-"طلب جديد من منصة أساس" +
-"%0Aقطر الحديد: " + diameter +
-"%0Aالكمية: " + qty + " طن" +
-"%0Aالموقع: " + location
+let order = {
+diameter: diameter,
+qty: qty,
+location: location,
+status: "pending"
+}
 
-let phone = "9647732670436"
+let orders = JSON.parse(localStorage.getItem("orders")) || []
 
-window.open("https://wa.me/" + phone + "?text=" + message)
+orders.push(order)
+
+localStorage.setItem("orders", JSON.stringify(orders))
+
+alert("تم إرسال الطلب")
 
 }
