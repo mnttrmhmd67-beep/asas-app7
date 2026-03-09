@@ -1,30 +1,37 @@
-<!DOCTYPE html>
-<html lang="ar">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>لوحة التحكم - منصة أساس</title>
-  <link rel="stylesheet" href="css/layout/header.css">
-  <link rel="stylesheet" href="css/layout/layout.css">
-</head>
-<body>
-  <nav class="navbar">
-    <a href="index.html" class="logo">منصة أساس</a>
-    <ul class="nav-links">
-      <li><a href="index.html">الرئيسية</a></li>
-      <li><a href="customers.html">العملاء</a></li>
-      <li><a href="suppliers.html">الموردين</a></li>
-      <li><a href="dashboard.html">لوحة التحكم</a></li>
-    </ul>
-  </nav>
+<h2 class="title">الأسعار المقدمة</h2>
 
-  <div class="container">
-    <h1>لوحة التحكم</h1>
-    <p>إحصائيات ومعلومات مهمة حول المنصة.</p>
-  </div>
+<div id="orders"></div>
 
-  <footer>
-    © 2026 منصة أساس
-  </footer>
-</body>
-</html>
+<script>
+
+let orders = JSON.parse(localStorage.getItem("orders")) || []
+let container = document.getElementById("orders")
+
+orders.forEach((order)=>{
+
+if(order.prices.length > 0){
+
+let div = document.createElement("div")
+
+let pricesHTML = ""
+
+order.prices.forEach(price=>{
+pricesHTML += `<p>السعر: ${price} دينار / طن</p>`
+})
+
+div.innerHTML = `
+<p>قطر الحديد: ${order.diameter}</p>
+<p>الكمية: ${order.qty}</p>
+
+${pricesHTML}
+
+<hr>
+`
+
+container.appendChild(div)
+
+}
+
+})
+
+</script>
