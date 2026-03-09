@@ -1,22 +1,49 @@
 <!DOCTYPE html>
 <html lang="ar">
 <head>
+
 <meta charset="UTF-8">
-<title>طلب جديد</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>طلب الحديد</title>
+
 <link rel="stylesheet" href="css/style.css">
+
 </head>
+
 <body>
 
-<h1>إرسال طلب</h1>
+<h2 class="title">طلب حديد التسليح</h2>
 
-<input id="name" placeholder="اسم العميل">
-<input id="phone" placeholder="رقم الهاتف">
-<input id="city" placeholder="المدينة">
-<input id="product" placeholder="المنتج">
-<input id="qty" placeholder="الكمية طن">
+<div class="form">
+
+<label>قطر الحديد</label>
+
+<select id="diameter">
+
+<option>12</option>
+<option>14</option>
+<option>16</option>
+<option>18</option>
+<option>20</option>
+<option>25</option>
+<option>32</option>
+
+</select>
+
+<label>الكمية (طن)</label>
+
+<input type="number" id="qty">
+
+<label>الموقع</label>
+
+<input type="text" id="location">
 
 <button onclick="sendOrder()">إرسال الطلب</button>
 
-<script src="js/main.js"></script>
+</div>
+
+<script src="main.js"></script>
+
 </body>
 </html>
