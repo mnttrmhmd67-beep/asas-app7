@@ -1,33 +1,179 @@
 <!DOCTYPE html>
 <html lang="ar">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>منصة أساس - المنتجات</title>
-  <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<title>منصة أساس</title>
+
+<style>
+
+body{
+font-family: Arial;
+direction: rtl;
+background:#f5f7fb;
+margin:0;
+}
+
+.navbar{
+background:#0a3d62;
+color:white;
+padding:15px;
+text-align:center;
+font-size:22px;
+}
+
+.container{
+width:90%;
+margin:auto;
+margin-top:30px;
+}
+
+table{
+width:100%;
+background:white;
+border-collapse:collapse;
+box-shadow:0 0 10px rgba(0,0,0,0.1);
+}
+
+th{
+background:#1e5aa5;
+color:white;
+padding:10px;
+}
+
+td{
+padding:10px;
+text-align:center;
+border-bottom:1px solid #eee;
+}
+
+input{
+width:60px;
+padding:5px;
+text-align:center;
+}
+
+button{
+background:#25D366;
+color:white;
+border:none;
+padding:8px 15px;
+cursor:pointer;
+border-radius:5px;
+}
+
+button:hover{
+background:#1ebe5d;
+}
+
+</style>
+
+<script>
+
+function order(diameter,price,inputId){
+
+let qty = document.getElementById(inputId).value;
+
+let total = price * qty;
+
+let message =
+"طلب حديد تسليح%0A"+
+"القطر: "+diameter+" مم%0A"+
+"الكمية: "+qty+" طن%0A"+
+"السعر الكلي: "+total+" دينار";
+
+window.open(
+"https://wa.me/9647732670436?text="+message
+);
+
+}
+
+</script>
+
 </head>
+
 <body>
-  <header>
-    <h1>منصة أساس</h1>
-  </header>
 
-  <main>
-    <table class="products-table">
-      <thead>
-        <tr>
-          <th>القطر (مم)</th>
-          <th>السعر (عراقي)</th>
-          <th>الكمية (طن)</th>
-          <th>الإجمالي (عراقي)</th>
-          <th>طلب</th>
-        </tr>
-      </thead>
-      <tbody id="productBody">
-        <!-- JS سيضيف المنتجات هنا -->
-      </tbody>
-    </table>
-  </main>
+<div class="navbar">
+منصة أساس لبيع حديد التسليح
+</div>
 
-  <script src="main.js"></script>
+<div class="container">
+
+<table>
+
+<tr>
+<th>القطر (مم)</th>
+<th>السعر للطن (دينار)</th>
+<th>الكمية (طن)</th>
+<th>طلب</th>
+</tr>
+
+<tr>
+<td>12</td>
+<td>110000</td>
+<td><input id="q1" value="1"></td>
+<td><button onclick="order(12,110000,'q1')">طلب</button></td>
+</tr>
+
+<tr>
+<td>14</td>
+<td>130000</td>
+<td><input id="q2" value="1"></td>
+<td><button onclick="order(14,130000,'q2')">طلب</button></td>
+</tr>
+
+<tr>
+<td>16</td>
+<td>160000</td>
+<td><input id="q3" value="1"></td>
+<td><button onclick="order(16,160000,'q3')">طلب</button></td>
+</tr>
+
+<tr>
+<td>18</td>
+<td>180000</td>
+<td><input id="q4" value="1"></td>
+<td><button onclick="order(18,180000,'q4')">طلب</button></td>
+</tr>
+
+<tr>
+<td>20</td>
+<td>200000</td>
+<td><input id="q5" value="1"></td>
+<td><button onclick="order(20,200000,'q5')">طلب</button></td>
+</tr>
+
+<tr>
+<td>22</td>
+<td>220000</td>
+<td><input id="q6" value="1"></td>
+<td><button onclick="order(22,220000,'q6')">طلب</button></td>
+</tr>
+
+<tr>
+<td>25</td>
+<td>250000</td>
+<td><input id="q7" value="1"></td>
+<td><button onclick="order(25,250000,'q7')">طلب</button></td>
+</tr>
+
+<tr>
+<td>28</td>
+<td>280000</td>
+<td><input id="q8" value="1"></td>
+<td><button onclick="order(28,280000,'q8')">طلب</button></td>
+</tr>
+
+<tr>
+<td>32</td>
+<td>320000</td>
+<td><input id="q9" value="1"></td>
+<td><button onclick="order(32,320000,'q9')">طلب</button></td>
+</tr>
+
+</table>
+
+</div>
+
 </body>
 </html>
