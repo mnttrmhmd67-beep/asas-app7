@@ -1,50 +1,61 @@
-<h2 class="title">طلبات العملاء</h2>
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+<meta charset="UTF-8">
+<title>الموردين</title>
 
-<div id="orders"></div>
+<style>
 
-<script>
+body{
+font-family:Arial;
+direction:rtl;
+background:#f4f6f8;
+text-align:center;
+}
 
-let orders = JSON.parse(localStorage.getItem("orders")) || []
-let container = document.getElementById("orders")
+form{
+background:white;
+width:300px;
+margin:auto;
+margin-top:100px;
+padding:30px;
+box-shadow:0 0 10px rgba(0,0,0,0.1);
+}
 
-orders.forEach((order,index)=>{
+input{
+width:100%;
+padding:10px;
+margin:10px 0;
+}
 
-if(order.status === "approved"){
+button{
+background:#27ae60;
+color:white;
+padding:10px;
+border:none;
+width:100%;
+}
 
-let div = document.createElement("div")
+</style>
+</head>
 
-div.innerHTML = `
-<p>قطر الحديد: ${order.diameter}</p>
-<p>الكمية: ${order.qty} طن</p>
-<p>الموقع: ${order.location}</p>
+<body>
 
-<input type="number" placeholder="السعر للطن" id="price${index}">
+<form>
 
-<button onclick="sendPrice(${index})">
-إرسال السعر
+<h3>تسجيل مورد</h3>
+
+<input placeholder="اسم الشركة">
+
+<input placeholder="رقم الهاتف">
+
+<input placeholder="الكمية المتوفرة (طن)">
+
+<button>
+تسجيل
 </button>
 
-<hr>
-`
+</form>
 
-container.appendChild(div)
-
-}
-
-})
-
-function sendPrice(index){
-
-let orders = JSON.parse(localStorage.getItem("orders"))
-
-let price = document.getElementById("price"+index).value
-
-orders[index].prices.push(price)
-
-localStorage.setItem("orders", JSON.stringify(orders))
-
-alert("تم إرسال السعر")
-
-}
-
-</script>
+</body>
+</html>
